@@ -7,12 +7,13 @@ import java.net.URISyntaxException;
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
     public static void main(String[] args) throws URISyntaxException {
-        final ProcessarBoletos processarBoletos = new ProcessarBoletos(new LeituraRetornoBradesco());
+        final var processarBoletos = new ProcessarBoletos(new LeituraRetornoBancoBrasil());
 
-        String caminhoArquivo = Main.class.getResource("/bradesco-1.csv").toURI().getPath();
-        System.out.println("Leitura Arquivo: " + caminhoArquivo + "\n");
-
+        String caminhoArquivo = Main.class.getResource("/banco-brasil-1.csv").toURI().getPath();
         processarBoletos.processar(caminhoArquivo);
+
+        processarBoletos.setLeituraRetorno(new LeituraRetornoBradesco());
+        processarBoletos.processar(Main.class.getResource("/bradesco-1.csv").toURI().getPath());
     }
 }
 

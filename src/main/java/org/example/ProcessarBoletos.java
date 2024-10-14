@@ -9,20 +9,14 @@ public class ProcessarBoletos {
         this.leituraRetorno = leitura;
     }
 
-    public LeituraRetorno getLeituraRetorno() {
-        return leituraRetorno;
-    }
-
     public void setLeituraRetorno(LeituraRetorno leituraRetorno) {
         this.leituraRetorno = leituraRetorno;
     }
 
     public void processar(String nomeArquivo){
-        System.out.println("Boletos");
-        System.out.println("----------------------------------------------------------------------------------");
-        final List<Boleto> boletos = leituraRetorno.lerArquivo(nomeArquivo);
-        for (Boleto boleto : boletos) {
-            System.out.println(boleto);
-        }
+        System.out.println("Boletos\n" +
+                "-----------------------------------------------------");
+        final var boletos = leituraRetorno.lerArquivo(nomeArquivo);
+        boletos.forEach(System.out::println);
     }
 }

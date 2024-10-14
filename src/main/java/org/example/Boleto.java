@@ -109,9 +109,9 @@ public class Boleto {
                 "\ncpfCliente = '" + cpfCliente + '\'' +
                 "\ndataVencimento = " + dataVencimento +
                 " - dataPagamento = " + dataPagamento +
-                "\nvalor = " + valor +
-                " - multa = " + multa +
-                " - juros = " + juros +
+                "\nvalor = " + String.format("%.2f", valor) +
+                " - multa = " + String.format("%.2f",multa) +
+                " - juros = " + String.format("%.2f",juros) +
                 "\n\n";
     }
 }

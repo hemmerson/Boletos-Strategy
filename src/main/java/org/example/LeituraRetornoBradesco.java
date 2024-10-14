@@ -12,8 +12,8 @@ public class LeituraRetornoBradesco implements LeituraRetorno{
 
     @Override
     public List<Boleto> lerArquivo(String nomeArquivo) {
-        List<Boleto> boletos = new ArrayList<>();
         try{
+            List<Boleto> boletos = new ArrayList<>();
             var lines = Files.readAllLines(Path.of(nomeArquivo));
             for (var line : lines) {
                 Boleto boleto = new Boleto();
@@ -30,9 +30,9 @@ public class LeituraRetornoBradesco implements LeituraRetorno{
                 boleto.setJuros(Double.parseDouble(array[9]));
                 boletos.add(boleto);
             }
+            return boletos;
         } catch (IOException e){
-            e.printStackTrace();
+            throw new RuntimeException(e);
         }
-        return boletos;
     }
 }
